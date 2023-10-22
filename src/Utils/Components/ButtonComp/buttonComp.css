@@ -1,0 +1,98 @@
+.MuiButtonBase-root.button_global {
+    font-family: var(--inter-font);
+    text-transform: capitalize;
+    box-shadow: none;
+  }
+  .MuiButtonBase-root.button_global.width_lg {
+    width: 160px;
+  }
+  .MuiButtonBase-root.xl {
+    padding: 8px 120px 8px 120px;
+  }
+  .MuiButtonBase-root.lg {
+    padding: 13px 35px 13px 35px;
+  }
+  .MuiButtonBase-root.secondary {
+    background: #000000;
+    min-width: 125px;
+  }
+  .MuiButtonBase-root.primary {
+    background: #2441f5;
+    min-width: 125px;
+  }
+  .MuiButtonBase-root.tertiary {
+    background: #fff;
+    border: 1px solid #dadce0;
+    color: #3574e0;
+    min-width: 125px;
+  }
+  .MuiButtonBase-root.quaternary {
+    border-radius: 5px;
+    /* border: 1px solid #efefef; */
+    background: #fff;
+    min-width: 125px;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.06);
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 10px 32px;
+  }
+  
+  .MuiButtonBase-root.primary:hover {
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.2) 100%
+      ),
+      #2441f5;
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.15);
+  }
+  .MuiButtonBase-root.MuiButton-sizeLarge {
+    padding: 8px 4.4rem;
+  }
+  
+  .MuiButtonBase-root.secondary:hover {
+    background: #000000;
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.15);
+  }
+  
+  .MuiButtonBase-root.tertiary:hover {
+    background: #f7fafe;
+    border: 1px solid #dadce0;
+    color: #254fa0;
+  }
+  
+  .MuiButtonBase-root.quaternary:hover {
+    background: #fff;
+    /* border: 1px solid #efefef; */
+    color: #000000;
+  }
+  .button_global .MuiButtonBase-root.Mui-disabled {
+    border: 1px solid #efefef !important;
+    background: #fff !important;
+    color: #8a8a8a !important;
+  }
+  .MuiButtonBase-root.tertiary:active {
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+  }
+  
+  .buttComp-green-color{
+    background-color:#00915B !important;
+  }
+  
+  .buttonComp-7e-bg{
+    color:#7E8999 !important;
+    background-color: #F6F6F6 !important;
+  }
+  .buttonComp-bg-red{
+    color:white !important;
+    background-color: #F4635A !important;
+  }
+  /* .button_global{
+    color:white !important;
+  } */

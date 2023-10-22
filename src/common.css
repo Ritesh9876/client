@@ -140,3 +140,23 @@ border-radius: 10px;
 }
 
 /* margin bottom classes ends */
+
+/* text colors classes starts */
+
+.color-white{
+    color:white;
+}
+.color-red{
+    color:red;
+}
+
+/* text color classes ends */
+
+.pointer-arrow{
+    cursor: pointer;
+}
+.link-color{
+    color:blue;
+}
+
+
