@@ -1,0 +1,24 @@
+.profileOverview-container{
+    width:60vw;
+}
+
+.profileOverview-profile-img-card{
+    width:100px;
+    height:100px;
+    background-color:pink;
+    border-radius:50%;
+    box-shadow:0 0 5px rgba(0,0,0,.5)
+  }
+
+.profileOverview-company-logo-cont{
+    width:50px;
+    height:50px;
+    background-color:pink;
+    border-radius: 5px;
+}
+
+.profileOverview-skill-chip{
+    padding:8px 10px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+}
