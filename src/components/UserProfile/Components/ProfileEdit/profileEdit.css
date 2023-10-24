@@ -1,5 +1,7 @@
 .profileEdit-container{
-width:60vw;
+    overflow-y: scroll;
+    height:calc(100vh - 300px);
+    width:80vw;
 }
 
 .profileEdit-left-inner-container{
@@ -8,3 +10,30 @@ width:60vw;
 .profileEdit-right-inner-container{
     width:70%;
 }
+
+.profileEdit-question-section-container{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.profileEdit-textarea{
+    width: 90%;
+}
+
+@media (max-width: 600px) {
+    .profileEdit-container{
+        width: 100vw;       /* Make the div full width */
+  overflow-x: hidden;
+        }
+
+        .profileEdit-left-inner-container{
+            width:100%;
+           }
+           .profileEdit-right-inner-container{
+               width:100%;
+           }
+           .profileEdit-question-section-container{
+            flex-direction:column;
+            /* justify-content: space-between; */
+        }
+  }

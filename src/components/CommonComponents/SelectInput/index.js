@@ -28,21 +28,21 @@ const names = [
 
 
 
-function SelectInputType() {
+function SelectInputType(props) {
 
   return (
     <div className="selectInputType-container">
         <FormControl sx={{ m: 0, width: "100%" }}>
         <Select
-          labelId="demo-multiple-name-label"
-          id="demo-multiple-name"
-          value={""}
-          ///onChange={handleChange}
+          value={props.value}
+          onChange={(event) =>{
+            props.handleInputChange(props.index,props.name,event.target.value)
+          }}
           input={<OutlinedInput label="Name" />}
           MenuProps={MenuProps}
           fullWidth
         >
-          {names.map((name) => (
+          {props.options.map((name) => (
             <MenuItem
               key={name}
               value={name}

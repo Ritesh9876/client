@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './textInput.css'
-import {TextField} from '@mui/material';
+import { TextField } from '@mui/material';
 function TextInput(props) {
+  console.log("rendered ")
   return (
     <div className="textInput-container">
-    <TextField 
-   // variant="standard" 
-   fullWidth
-    />
+      <TextField
+        value={props.value ? props.value : ""}
+
+        onChange={(event) => {
+
+          props.handleInputChange(props.index, props.name, event.target.value)
+
+        }}
+        fullWidth
+      />
     </div>
   )
 }

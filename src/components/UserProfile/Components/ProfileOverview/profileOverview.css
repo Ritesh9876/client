@@ -1,5 +1,7 @@
 .profileOverview-container{
-    width:60vw;
+    overflow-y: scroll;
+    height:calc(100vh - 300px);
+    width:80vw;
 }
 
 .profileOverview-profile-img-card{
@@ -22,3 +24,9 @@
     border-radius: 5px;
     background-color: #F5F5F5;
 }
+
+@media (max-width: 600px) {
+    .profileOverview-container{
+        width:100vw;
+    }
+  }

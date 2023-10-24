@@ -1,0 +1,12 @@
+.userProfile-container{
+    margin-left:70px;
+    margin-top:30px;
+}
+
+
+@media (max-width: 600px) {
+    .userProfile-container{
+        margin-left:0;
+        margin-top:0;
+    }
+  }

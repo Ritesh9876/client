@@ -13,9 +13,9 @@ function UserProfile() {
     setTabValue(value)
   }
   return (
-    <div className="ml-70 mt-100">
+    <div className="userProfile-container">
         
-        <div>
+      
         <p className="font_24_600">Edit your Connectis profile</p>
 
         <div className="mt-30">
@@ -24,7 +24,7 @@ function UserProfile() {
           flexGrow: 1,
           bgcolor: "background.paper",
           display: "flex",
-          width:"100vh"
+          height:"100%"
 
         }}
       >
@@ -50,7 +50,7 @@ function UserProfile() {
 
       </Box>
         </div>
-        </div>
+        
     </div>
   )
 }
