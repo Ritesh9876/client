@@ -7,6 +7,7 @@ import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import UserProfile from '../UserProfile';
 import {BottomNavigation, BottomNavigationAction} from '@mui/material';
+import FeedsPage from '../FeedsPage';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -74,7 +75,7 @@ function Sidebar() {
           <UserProfile />
         </TabPanel>
         <TabPanel value={tabValue} index={2}>
-          Feeds
+          <FeedsPage/>
         </TabPanel>
         <TabPanel value={tabValue} index={3}>
           Messages
@@ -121,7 +122,7 @@ function Sidebar() {
           <UserProfile />
         </TabPanel>
         <TabPanel value={tabValue} index={2}>
-          Feeds
+          <FeedsPage/>
         </TabPanel>
         <TabPanel value={tabValue} index={3}>
           Messages
