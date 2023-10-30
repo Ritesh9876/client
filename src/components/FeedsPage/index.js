@@ -67,7 +67,6 @@ function FeedsPage() {
 
                   or best if he someday decides to write a book, that would be amazing.
                 </p>
-
                 <p className="feedsPage-seeMore font_14_400">...see more</p>
               </div>
             </div>
@@ -80,7 +79,9 @@ function FeedsPage() {
               />
             </div>
 
-            <hr className="mt-20"/>
+            <div className="pl-10 pr-10 mt-20">
+            <hr />
+            </div>
 
             <div className="d-flex justify-content-start align-items-center pl-10 pr-10 pb-20">
              <div className="pointer-arrow">

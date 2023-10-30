@@ -85,6 +85,7 @@
 
   .navbar-elements.active {
     width: 270px;
+    z-index:100;
   }
 
   .navbar-elements ul {
