@@ -12,7 +12,7 @@
 
 .navbar-outer-container {
   height: 60px;
-  background-color: #fef7e5;
+  /* background-color: #fef7e5; */
   position: relative;
 }
 
@@ -39,7 +39,7 @@
 .navbar-elements ul a {
   font-size: 16px;
   font-weight: 400;
-  color: #2f234f;
+  color: #8094ae;
   text-decoration: none;
 }
 

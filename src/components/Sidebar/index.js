@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './sidebar.css'
 import { Box, Tab, Tabs } from "@mui/material";
 import PropTypes from 'prop-types';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
@@ -6,8 +7,9 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import UserProfile from '../UserProfile';
-import {BottomNavigation, BottomNavigationAction} from '@mui/material';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import FeedsPage from '../FeedsPage';
+import TabLabels from '../CommonComponents/TabLabels';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -45,7 +47,7 @@ function Sidebar() {
   const [tabValue, setTabValue] = useState(0)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
-  
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 600);
@@ -62,77 +64,71 @@ function Sidebar() {
     setTabValue(value)
   }
   return (
-   <div>
-{isMobile ? 
-  <Box 
-  sx={{ position: 'fixed', bottom: 0, width: "100%" }}
-  //sx={{  }}
-  >
-    <TabPanel value={tabValue} index={0}>
-          Your dashboard
-        </TabPanel>
-        <TabPanel value={tabValue} index={1}>
-          <UserProfile />
-        </TabPanel>
-        <TabPanel value={tabValue} index={2}>
-          <FeedsPage/>
-        </TabPanel>
-        <TabPanel value={tabValue} index={3}>
-          Messages
-        </TabPanel>
-      <BottomNavigation
-        showLabels
-        value={tabValue}
-        onChange={(event, newValue) => {
-          setTabValue(newValue);
-        }}
-      >
-        <BottomNavigationAction label="Home" icon={< HomeOutlinedIcon />} />
-        <BottomNavigationAction label="Profile" icon={< PermIdentityOutlinedIcon />} />
-        <BottomNavigationAction label="Feeds" icon={< FeedOutlinedIcon />} />
-        <BottomNavigationAction label="Messages" icon={< ChatBubbleOutlineOutlinedIcon />} />
-      </BottomNavigation>
-    </Box>
-: 
-   <div className="mt-30">
-      <Box
-        sx={{
-          flexGrow: 1,
-          bgcolor: "background.paper",
-          display: "flex",
-          height: "600px",
-        }}
-      >
-        <Tabs
-          orientation="vertical"
-          value={tabValue}
-          onChange={handleTabValueChange}
-          aria-label="dashboard navigation tabs"
+    <div>
+      {isMobile ?
+        <Box
+          sx={{ position: 'fixed', bottom: 0, width: "100%" }}
+        //sx={{  }}
         >
-          <Tab icon={< HomeOutlinedIcon />} label="Home"  {...a11yProps(0)} />
-          <Tab icon={< PermIdentityOutlinedIcon />} label="Profile" {...a11yProps(1)} />
-          <Tab icon={< FeedOutlinedIcon />} label="Feeds" {...a11yProps(2)} />
-          <Tab icon={< ChatBubbleOutlineOutlinedIcon />} label="Messages" {...a11yProps(3)} />
+          <TabPanel value={tabValue} index={0}>
+            Your dashboard
+          </TabPanel>
+          <TabPanel value={tabValue} index={1}>
+            <UserProfile />
+          </TabPanel>
+          <TabPanel value={tabValue} index={2}>
+            <FeedsPage />
+          </TabPanel>
+          <TabPanel value={tabValue} index={3}>
+            Messages
+          </TabPanel>
+          <BottomNavigation
+            showLabels
+            value={tabValue}
+            onChange={(event, newValue) => {
+              setTabValue(newValue);
+            }}
+          >
+            <BottomNavigationAction label="Home" icon={< HomeOutlinedIcon />} />
+            <BottomNavigationAction label="Profile" icon={< PermIdentityOutlinedIcon />} />
+            <BottomNavigationAction label="Feeds" icon={< FeedOutlinedIcon />} />
+            <BottomNavigationAction label="Messages" icon={< ChatBubbleOutlineOutlinedIcon />} />
+          </BottomNavigation>
+        </Box>
+        :
+        <div className="sidebar-tabs-container mt-30">
+          
+            <Tabs
+              className="sidebar-header-tabs-container"
+              orientation="vertical"
+              value={tabValue}
+              onChange={handleTabValueChange}
+              aria-label="dashboard navigation tabs"
+              indicatorColor='white'
+            >
+              <Tab icon={< HomeOutlinedIcon />} label={<TabLabels value="Home"/>}  {...a11yProps(0)} />
+              <Tab icon={< PermIdentityOutlinedIcon />} label={<TabLabels value="Profile"/>} {...a11yProps(1)} />
+              <Tab icon={< FeedOutlinedIcon />} label={<TabLabels value="Feeds"/>} {...a11yProps(2)} />
+              <Tab icon={< ChatBubbleOutlineOutlinedIcon />} label={<TabLabels value="Messages"/>} {...a11yProps(3)} />
 
-        </Tabs>
-        <TabPanel value={tabValue} index={0}>
-          Your dashboard
-        </TabPanel>
-        <TabPanel value={tabValue} index={1}>
-          <UserProfile />
-        </TabPanel>
-        <TabPanel value={tabValue} index={2}>
-          <FeedsPage/>
-        </TabPanel>
-        <TabPanel value={tabValue} index={3}>
-          Messages
-        </TabPanel>
+            </Tabs>
+            <TabPanel value={tabValue} index={0}>
+              Your dashboard
+            </TabPanel>
+            <TabPanel value={tabValue} index={1}>
+              <UserProfile />
+            </TabPanel>
+            <TabPanel value={tabValue} index={2}>
+              <FeedsPage />
+            </TabPanel>
+            <TabPanel value={tabValue} index={3}>
+              Messages
+            </TabPanel>
 
-      </Box>
+          </div>
+      }
     </div>
-}
-   </div>
-  
+
   )
 }
 

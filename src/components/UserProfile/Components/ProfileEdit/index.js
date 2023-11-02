@@ -65,7 +65,7 @@ function ProfileEdit() {
   const removeEducation = (index) => {
     let currentEducation = [...education]
     currentEducation.splice(index, 1)
-    setExperiences(currentEducation)
+    setEducation(currentEducation)
   }
 
   const addNewExperience = () => {
@@ -239,7 +239,7 @@ function ProfileEdit() {
                           removeExperience(index)
                         }}>
                           <ButtonComp
-                            status={3} >
+                            color={3} >
                             Remove
                           </ButtonComp>
                         </div>
@@ -273,6 +273,7 @@ function ProfileEdit() {
 
                       <div className="mt-10">
                         <textarea
+                        className="profileEdit-textarea"
                           onChange={event => {
                             handleExperienceChange(index, "description", event.target.value)
                           }}
@@ -318,7 +319,7 @@ function ProfileEdit() {
                           removeEducation(index)
                         }}>
                           <ButtonComp
-                            status={3} >
+                            color={3}>
                             Remove
                           </ButtonComp>
                         </div>

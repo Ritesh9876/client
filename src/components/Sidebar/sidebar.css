@@ -1,0 +1,15 @@
+.sidebar-tabs-container {
+    height: calc(100vh - 90px);
+    flex-grow:1;
+    display:flex;
+}
+.sidebar-header-tabs-container {
+    position: fixed;
+    top: 30vh !important;
+    left:0px !important;
+}
+
+.sidebar-header-tabs-container .MuiButtonBase-root{
+    background-color: #121212 !important;
+    color:#8094ae !important
+}
