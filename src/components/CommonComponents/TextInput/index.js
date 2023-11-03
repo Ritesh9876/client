@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './textInput.css'
 import { TextField } from '@mui/material';
 function TextInput(props) {
-  console.log("rendered ")
+  
   return (
     <div className="textInput-container">
       <TextField

@@ -1,13 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './feedsPage.css'
 import ButtonComp from '../../Utils/Components/ButtonComp'
 import { Avatar } from '@mui/material'
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import InsertCommentOutlinedIcon from '@mui/icons-material/InsertCommentOutlined';
+import NewPost from './Components/NewPost';
 
 function FeedsPage() {
+  const [isCreatePostModalOpen,setIsCreatePostModalOpen] = useState(false)
+  
+  const handleCreatePostModal = () =>{
+    setIsCreatePostModalOpen(!isCreatePostModalOpen)
+  }
   return (
     <div className="feedsPage-main-container">
+        <NewPost
+        isCreatePostModalOpen={isCreatePostModalOpen}
+        handleCreatePostModal={handleCreatePostModal}
+        />
       <div className="feedsPage-new-post-container d-flex justify-content-between align-items-center border-ef br-10px pl-10 pt-20 pr-10 pb-20">
         <p className="font_24_600">Start a new post</p>
 
@@ -15,6 +25,10 @@ function FeedsPage() {
           color={2}
           variant={1}
           size={2}
+          onClick={() =>{
+            console.log("on clicking working")
+            setIsCreatePostModalOpen(true)
+          }}
         >
           New Post +
         </ButtonComp>

@@ -6,9 +6,14 @@ import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
+import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 import UserProfile from '../UserProfile';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import FeedsPage from '../FeedsPage';
+import Messages from '../Messages'
 import TabLabels from '../CommonComponents/TabLabels';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -80,7 +85,7 @@ function Sidebar() {
             <FeedsPage />
           </TabPanel>
           <TabPanel value={tabValue} index={3}>
-            Messages
+          <Messages/>
           </TabPanel>
           <BottomNavigation
             showLabels
@@ -106,23 +111,36 @@ function Sidebar() {
               aria-label="dashboard navigation tabs"
               indicatorColor='white'
             >
-              <Tab icon={< HomeOutlinedIcon />} label={<TabLabels value="Home"/>}  {...a11yProps(0)} />
-              <Tab icon={< PermIdentityOutlinedIcon />} label={<TabLabels value="Profile"/>} {...a11yProps(1)} />
-              <Tab icon={< FeedOutlinedIcon />} label={<TabLabels value="Feeds"/>} {...a11yProps(2)} />
-              <Tab icon={< ChatBubbleOutlineOutlinedIcon />} label={<TabLabels value="Messages"/>} {...a11yProps(3)} />
+              <Tab icon={< PermIdentityOutlinedIcon />} label={<TabLabels value="Profile"/>} {...a11yProps(0)} />
+              <Tab icon={< FeedOutlinedIcon />} label={<TabLabels value="Feeds"/>} {...a11yProps(1)} />
+              <Tab icon={< ChatBubbleOutlineOutlinedIcon />} label={<TabLabels value="Messages"/>} {...a11yProps(2)} />
+              <Tab icon={< NotificationsNoneOutlinedIcon />} label={<TabLabels value="Notification"/>} {...a11yProps(3)} />
+              <Tab icon={< ExploreOutlinedIcon />} label={<TabLabels value="Explore"/>} {...a11yProps(4)} />
+              <Tab icon={< LinkOutlinedIcon />} label={<TabLabels value="Requests"/>} {...a11yProps(5)} />
+              <Tab icon={< Groups2OutlinedIcon />} label={<TabLabels value="Teams"/>} {...a11yProps(6)} />
 
             </Tabs>
+            
             <TabPanel value={tabValue} index={0}>
-              Your dashboard
-            </TabPanel>
-            <TabPanel value={tabValue} index={1}>
               <UserProfile />
             </TabPanel>
-            <TabPanel value={tabValue} index={2}>
+            <TabPanel value={tabValue} index={1}>
               <FeedsPage />
             </TabPanel>
+            <TabPanel value={tabValue} index={2}>
+              <Messages/>
+            </TabPanel>
             <TabPanel value={tabValue} index={3}>
-              Messages
+              Notification
+            </TabPanel>
+            <TabPanel value={tabValue} index={4}>
+              Explore
+            </TabPanel>
+            <TabPanel value={tabValue} index={5}>
+              Requests
+            </TabPanel>
+            <TabPanel value={tabValue} index={6}>
+              Teams
             </TabPanel>
 
           </div>
