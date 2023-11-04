@@ -15,6 +15,9 @@ import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import FeedsPage from '../FeedsPage';
 import Messages from '../Messages'
 import TabLabels from '../CommonComponents/TabLabels';
+import Notifications from '../Notifications';
+import Explore from '../Explore'
+import Requests from '../Requests';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -131,13 +134,13 @@ function Sidebar() {
               <Messages/>
             </TabPanel>
             <TabPanel value={tabValue} index={3}>
-              Notification
+              <Notifications/>
             </TabPanel>
             <TabPanel value={tabValue} index={4}>
-              Explore
+              <Explore/>
             </TabPanel>
             <TabPanel value={tabValue} index={5}>
-              Requests
+              <Requests/>
             </TabPanel>
             <TabPanel value={tabValue} index={6}>
               Teams
