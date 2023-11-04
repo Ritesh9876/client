@@ -15,7 +15,7 @@ function Requests() {
               <div className="d-flex align-items-center">
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://images.mid-day.com/images/images/2018/feb/Taapsee-Pannu-Red-l.jpg"
+                  src="https://qph.cf2.quoracdn.net/main-qimg-fcb478cfe3bd2e68cf33c691ad75b3dd-lq"
                   sx={{ width: 50, height: 50 }}
                 />
                 <div className="ml-10">

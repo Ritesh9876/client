@@ -74,12 +74,23 @@ border-radius: 10px;
 .bg-1d{
     background-color: "#1d1e20";
 }
+.bg-28{
+    background-color: #28292d;
+}
 /* background color classes ends */
 
 
 /* width classes starts */
 .w-10px{
     width:10px !important;
+}
+
+.w-40{
+    width:40% !important;
+}
+
+.w-60{
+    width:60% !important;
 }
 .w-100{
     width:100% !important;
@@ -157,8 +168,13 @@ border-radius: 10px;
 .ml-10{
     margin-left:10px !important;
 }
+
 .ml-20{
     margin-left:20px !important;
+}
+
+.ml-30{
+    margin-left:30px !important;
 }
 
 .ml-70{

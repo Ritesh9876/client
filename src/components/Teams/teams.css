@@ -1,0 +1,43 @@
+.teams-main-container{
+    height:calc(100vh - 100px);
+    width:60vw;
+    padding-left:50px;
+    border-radius:10px;
+    margin-left:250px;
+    overflow-y: scroll;
+    scrollbar-width: 1px;
+}
+
+.team-container{
+    /* border:2px solid white; */
+    width:90%;
+    padding:10px;
+    border-radius:10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.team-header-container{
+    display:flex;
+    align-items: fex-start;
+}
+
+.team-skills-container{
+    width:400px;
+}
+.teams-skills-chip{
+    background-color: #020617;
+    padding:8px 10px;
+    border-radius: 5px;
+}
+
+.teams-team-members-container{
+    height:300px;
+    width:400px;
+    overflow-y: scroll;
+    scrollbar-width: 1px;
+    padding:10px;
+}
+
+.teams-team-member-container{
+    padding:8px 10px;
+    border-radius:5px;
+}

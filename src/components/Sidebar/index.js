@@ -18,6 +18,7 @@ import TabLabels from '../CommonComponents/TabLabels';
 import Notifications from '../Notifications';
 import Explore from '../Explore'
 import Requests from '../Requests';
+import Teams from '../Teams';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -143,7 +144,7 @@ function Sidebar() {
               <Requests/>
             </TabPanel>
             <TabPanel value={tabValue} index={6}>
-              Teams
+              <Teams/>
             </TabPanel>
 
           </div>
