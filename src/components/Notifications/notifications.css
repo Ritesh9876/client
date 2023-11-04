@@ -1,0 +1,16 @@
+.notifications-container{
+    height:calc(100vh - 100px);
+    width:80vw;
+    border-radius:10px;
+    margin-left:160px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* border:2px solid white; */
+} 
+
+.notifications-notification-container{
+    background-color: #020617;
+    padding:10px;
+    width:40vw;
+    border-radius:10px;
+}
