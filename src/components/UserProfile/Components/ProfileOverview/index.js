@@ -1,7 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './profileOverview.css'
+import axios from 'axios';
+
 function ProfileOverview() {
+
+  const [userData, setUserData] = useState([]);
+  const [experienceData, setExperienceData] = useState([]);
+  const [educationData, setEducationData] = useState([]);
+  const [skillsData, setSkillsData] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8081/user/203')
+            .then(response => {
+                setUserData(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
+    useEffect(() => {
+      axios.get('http://localhost:8081/experience/user/203')
+          .then(response => {
+            setExperienceData(response.data);
+              console.log(response.data);
+          })
+          .catch(error => {
+              console.error(error);
+          });
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://localhost:8081/education/user/203')
+        .then(response => {
+          setEducationData(response.data);
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}, []);
+
+useEffect(() => {
+  axios.get('http://localhost:8081/skill/user/203')
+      .then(response => {
+        setSkillsData(response.data);
+          console.log(response.data);
+      })
+      .catch(error => {
+          console.error(error);
+      });
+}, []);
+
+
   return (
+    
     <div className="profileOverview-container border-ef br-10px pl-30 pt-30 pr-30 pb-30 mt-30 mb-30">
 
       <div className="d-flex">
@@ -10,165 +64,101 @@ function ProfileOverview() {
         </div>
 
         <div className="ml-20 mt-20">
-          <p className="font_16_600">Prathmesh Arya</p>
-          <p className="font_12_400">Full stack developer</p>
+          <p className="font_16_600">{userData.name}</p>
+          <p className="font_12_400">{userData.designation}</p>
         </div>
 
       </div>
+      
 
       <div className="mt-50">
            <p className="font_16_600">Bio</p>
 
            <p className="font_12_400 mt-10">
-           I hope to see real impact of work i do. I will love to work at startups, ideally working on front end development field. I am willing to expand my skills to marketing and management
-           I hope to see real impact of work i do. I will love to work at startups, ideally working on front end development field. I am willing to expand my skills to marketing and management
-           I hope to see real impact of work i do. I will love to work at startups, ideally working on front end development field. I am willing to expand my skills to marketing and management
+           {userData.bio}
            </p>
         </div>
-
+      
+      
         <div className="mt-50">
           <p className="font_16_600">Experience</p>
 
-          <div className="mt-20">
+          <div className="title">
+                {experienceData.map((data, key)=>{
+                        console.log(key);
+                    return(
+                      <div className="mt-30">
 
-            <div className="d-flex ">
-
-              <div className="profileOverview-company-logo-cont">
-                  <img src="" alt="" />
-              </div>
-
-              <div className="ml-20">   
-                  <p className="font_14_600">Full Stack Developer</p>
-
-                  <p className="font_12_400">Flipkart</p>
-
-                  <p className="font_12_400">Apr 2023 - present</p>
-              </div>
-
-
-            </div>
-
-            <div className="mt-20">
-              <ul className="font_12_400">
-                <li>
-                Designed and implemented new features for the Flipkart website, contributing to a more user-friendly and engaging shopping experience.
-                </li>
-
-                <li>
-                Collaborated with cross-functional teams to gather and analyze requirements, translating business needs into technical specifications.
-                </li>
-                <li>
-                Optimized database queries and improved system efficiency, resulting in a 20% decrease in page load times.
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div className="mt-30">
-
-            <div className="d-flex ">
-
-              <div className="profileOverview-company-logo-cont">
-                  <img src="" alt="" />
-              </div>
-
-              <div className="ml-20">   
-                  <p className="font_14_600">Full Stack Developer</p>
-
-                  <p className="font_12_400">Flipkart</p>
-
-                  <p className="font_12_400">Apr 2023 - present</p>
-              </div>
-
-
-            </div>
-
-            <div className="mt-20">
-              <ul className="font_12_400">
-                <li>
-                Designed and implemented new features for the Flipkart website, contributing to a more user-friendly and engaging shopping experience.
-                </li>
-
-                <li>
-                Collaborated with cross-functional teams to gather and analyze requirements, translating business needs into technical specifications.
-                </li>
-                <li>
-                Optimized database queries and improved system efficiency, resulting in a 20% decrease in page load times.
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div className="mt-30">
-
-            <div className="d-flex ">
-
-              <div className="profileOverview-company-logo-cont">
-                  <img src="" alt="" />
-              </div>
-
-              <div className="ml-20">   
-                  <p className="font_14_600">Full Stack Developer</p>
-
-                  <p className="font_12_400">Flipkart</p>
-
-                  <p className="font_12_400">Apr 2023 - present</p>
-              </div>
-
-
-            </div>
-
-            <div className="mt-20">
-              <ul className="font_12_400">
-                <li>
-                Designed and implemented new features for the Flipkart website, contributing to a more user-friendly and engaging shopping experience.
-                </li>
-
-                <li>
-                Collaborated with cross-functional teams to gather and analyze requirements, translating business needs into technical specifications.
-                </li>
-                <li>
-                Optimized database queries and improved system efficiency, resulting in a 20% decrease in page load times.
-                </li>
-              </ul>
-            </div>
-
-          </div>
+                      <div className="d-flex ">
           
+                        <div className="profileOverview-company-logo-cont">
+                            <img src="" alt="" />
+                        </div>
+          
+                        <div className="ml-20">   
+                            <p className="font_14_600">{data.designation}</p>
+          
+                            <p className="font_12_400">{data.company}</p>
+          
+                            <p className="font_12_400">{data.fromDate} - {data.toDate}</p>
+                        </div>
+          
+          
+                      </div>
+          
+                      <div className="mt-20">
+                        {data.description}
+                      </div>
+          
+                    </div>
+                    );
+                })} 
+
+          </div>
         </div>
+
+
 
         <div className="mt-50">
             <p className="font_16_600">Eduction</p>
 
+            <div className="title">
+                {educationData.map((data, key)=>{
+                        console.log(key);
+                    return(
             <div className="mt-30">
-              <p className="font_14_400">Indian Institute of Technology, Bombay</p>
+              <p className="font_14_400">{data.universityName}</p>
 
-              <p className="font_12_400">B.tech - CSE</p>
+              <p className="font_12_400">{data.degree}</p>
 
-              <p className="font_12_400">2020-Present</p>
+              <p className="font_12_400">{data.fromDate} - {data.toDate}</p>
             </div>
+              );
+            })} 
+
+          </div>
         </div>
+
+
 
         <div className="mt-50">
             <p className="font_16_600">Skills</p>
-
+            
             <div className="d-flex flex-wrap mt-30">
-                <p className="font_14_400 profileOverview-skill-chip">Mongodb</p>
 
-                <p className="font_14_400 profileOverview-skill-chip ml-10">Ruby</p>
+            
+                {skillsData.map((data, key)=>{
+                        console.log(key);
+                    return(
 
-                <p className="font_14_400 profileOverview-skill-chip ml-10">React</p>
-
-                <p className="font_14_400 profileOverview-skill-chip ml-10">Node</p>
-
-                <p className="font_14_400 profileOverview-skill-chip ml-10">Python</p>
-
-                <p className="font_14_400 profileOverview-skill-chip ml-10">Javascript</p>
-
-                <p className="font_14_400 profileOverview-skill-chip ml-10">Scala</p>
+                <p className="font_14_400 profileOverview-skill-chip">{data.skillName}</p>
+                );
+              })} 
+  
+           
+                
             </div>
+            
         </div>
 
     </div>
