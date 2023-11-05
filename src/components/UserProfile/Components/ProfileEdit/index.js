@@ -9,7 +9,7 @@ import userRoles from '../../../../Utils/DataJson/userRoles';
 import collegeDegrees from '../../../../Utils/DataJson/collegeDegrees';
 import NumberInput from '../../../CommonComponents/NumberInput';
 import dayjs from 'dayjs';
-
+import Axios from '../../../../Api';
 function ProfileEdit() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -82,6 +82,23 @@ function ProfileEdit() {
     let currentExperience = [...experiences]
     currentExperience.splice(index, 1)
     setExperiences(currentExperience)
+  }
+
+  const updateProfileData = async () =>{
+    try {
+      const response = await Axios.get(
+        `/updateUserProfile`,{
+          firstName,lastName,role,bio,personalWebsite,linkedInProfile,
+          githubProfile,mobileNo,profilePicURL,experiences,
+          setEducation
+        }
+      );
+      if (response.data.success) {
+        console.log("data has been set")
+      } 
+    } catch (err) {
+      console.log("error while updating data")
+    }
   }
   return (
     <div className="profileEdit-container border-ef br-10px pl-30 pt-30 pr-30 pb-30 mt-30 mb-30">
@@ -386,6 +403,19 @@ function ProfileEdit() {
             <p className="link-color pointer-arrow mt-20" onClick={addNewEducation}>+ add new Education</p>
 
           </div>
+        </div>
+
+        <div className="d-flex justify-content-end mt-20">
+              <ButtonComp 
+              color={1}
+              size={3}
+              className="pl-40 pr-40"
+              onClick={() =>{
+                updateProfileData()
+              }}
+              >
+                Save
+              </ButtonComp>
         </div>
 
       </div>

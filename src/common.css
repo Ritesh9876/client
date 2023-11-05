@@ -120,6 +120,9 @@ border-radius: 10px;
 .pl-30{
     padding-left: 30px !important;
 }
+.pl-40{
+    padding-left: 40px !important;
+}
 /* padding left classes ends */
 
 
@@ -146,6 +149,9 @@ border-radius: 10px;
 }
 .pr-30{
     padding-right: 30px !important;
+}
+.pr-40{
+    padding-right: 40px !important;
 }
 /* padding right classes ends */
 
