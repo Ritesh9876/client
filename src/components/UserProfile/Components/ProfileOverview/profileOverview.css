@@ -19,12 +19,11 @@
     border-radius: 5px;
 }
 
-.profileOverview-skill-chip{
+.profileOverview-skills-chip{
+    background-color: #020617;
     padding:8px 10px;
     border-radius: 5px;
-    background-color: #F5F5F5;
 }
-
 @media (max-width: 600px) {
     .profileOverview-container{
         width:100vw;

@@ -3,3 +3,7 @@
     color:white !important;
 
 }
+
+.numberInput-container .MuiOutlinedInput-notchedOutline{
+    border: 2px solid #dbdfea !important;
+}

@@ -13,6 +13,7 @@ import Axios from '../../../../Api';
 function ProfileEdit() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
+  const [email,setEmail] = useState("")
   const [role, setRole] = useState("")
   const [bio, setBio] = useState("")
   const [personalWebsite, setPersonalWebsite] = useState("")
@@ -25,6 +26,7 @@ function ProfileEdit() {
 
   const handleFirstNameChange = (index, name, value) => { setFirstName(value) }
   const handleLastNameChange = (index, name, value) => { setLastName(value) }
+  const handleEmailChange = (index, name, value) => { setEmail(value) }
   const handleBioChange = (index, name, value) => { setBio(value) }
   const handlePersonalWebsiteChange = (index, name, value) => { setPersonalWebsite(value) }
   const handleLinkedInProfileChange = (index, name, value) => { setLinkedInProfile(value) }
@@ -32,6 +34,67 @@ function ProfileEdit() {
   const handleRoleChange = (index, name, value) => { setRole(value) }
   const handleMobileNoChange = (index, name, value) => { setMobileNo(value) }
   const handleProfilePicURLChange = (index,name,value) => {setProfilePicURL(value)}
+
+
+  const getUserData = async () => {
+    try {
+      Axios.get('/user/203')
+        .then(response => {
+        //  setUserData(response.data);
+          setFirstName(response.data.firstName)
+          setLastName(response.data.lastName)
+          setEmail(response.data.email)
+          setRole(response.data.designation)
+          setBio(response.data.bio)
+          setProfilePicURL(response.data.profileImageUrl)
+          setGithubProfile(response.data.github)
+          setLinkedInProfile(response.data.linkedin)
+
+        })
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const getUserExperience = async () => {
+    try {
+      Axios.get('http://localhost:8081/experience/user/203')
+        .then(response => {
+          setExperiences(response.data);
+        })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getUserEducation = async () => {
+    try {
+      Axios.get('http://localhost:8081/education/user/203')
+        .then(response => {
+          setEducation(response.data);
+        })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getUserSkills = async () => {
+    try {
+      Axios.get('http://localhost:8081/skill/user/203')
+        .then(response => {
+        //  setSkillsData(response.data);
+        })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getUserData()
+    getUserExperience()
+    getUserEducation()
+    getUserSkills()
+  }, []);
 
   const handleExperienceChange = (index, name, value) => {
     let currentExperiences = [...experiences]
@@ -142,6 +205,17 @@ function ProfileEdit() {
                 />
               </div>
             </div>
+
+            <div className="mt-30">
+              <p className="font_14_600">Email</p>
+              <div className="mt-10">
+                <TextInput
+                  value={email}
+                  handleInputChange={handleEmailChange}
+                />
+              </div>
+            </div>
+
 
             <div className="mt-30">
               <p className="font_14_600">Profile Picture URL</p>
@@ -264,9 +338,9 @@ function ProfileEdit() {
 
                       <div className="mt-10">
                         <TextInput
-                          value={experiences[index].role}
+                          value={experiences[index].designation}
                           handleInputChange={handleExperienceChange}
-                          name={"role"}
+                          name={"designation"}
                           index={index}
                         />
                       </div>
@@ -277,9 +351,50 @@ function ProfileEdit() {
 
                       <div className="mt-10">
                         <TextInput
-                          value={currentExperience.companyName}
+                          value={currentExperience.company}
                           handleInputChange={handleExperienceChange}
-                          name={"companyName"}
+                          name={"company"}
+                          index={index}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="d-flex flex-wrap justify-content-between align-items-center mt-20">
+                      <div>
+                        <p className="font_14_600">Start Date</p>
+                        <div>
+                          <DateSelector
+                          value={currentExperience.fromDate}
+                          handleInputChange={handleEducationChange}
+                          name="fromDate"
+                          index={index}
+                          />
+                        </div>
+                      </div>
+
+
+                      <div>
+                        <p className="font_14_600">End Date</p>
+                        <div>
+                          <DateSelector
+                          value={currentExperience.toDate}
+                          handleInputChange={handleEducationChange}
+                          name="toDate"
+                          index={index}
+                          />
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div className="mt-10">
+                      <p className="font_14_600">Company Logo</p>
+
+                      <div className="mt-10">
+                        <TextInput
+                          value={currentExperience.companyLogo}
+                          handleInputChange={handleExperienceChange}
+                          name={"companyLogo"}
                           index={index}
                         />
                       </div>
@@ -290,6 +405,7 @@ function ProfileEdit() {
 
                       <div className="mt-10">
                         <textarea
+                        value={currentExperience.description}
                         className="profileEdit-textarea"
                           onChange={event => {
                             handleExperienceChange(index, "description", event.target.value)
@@ -326,7 +442,7 @@ function ProfileEdit() {
                 return (
                   <div
                     key={index}
-                    className="mt-30">
+                    className="mt-50">
 
                     <div>
                       <div className="d-flex justify-content-between align-items-center">
@@ -344,9 +460,9 @@ function ProfileEdit() {
 
                       <div className="mt-10">
                         <TextInput
-                          value={currentEducation.college}
+                          value={currentEducation.universityName}
                           handleInputChange={handleEducationChange}
-                          name={"college"}
+                          name={"universityName"}
                           index={index}
                         />
                       </div>
@@ -371,9 +487,9 @@ function ProfileEdit() {
                         <p className="font_14_600">Start Date</p>
                         <div>
                           <DateSelector
-                          value={currentEducation.startDate}
+                          value={currentEducation.fromDate}
                           handleInputChange={handleEducationChange}
-                          name="startDate"
+                          name="fromDate"
                           index={index}
                           />
                         </div>
@@ -384,14 +500,27 @@ function ProfileEdit() {
                         <p className="font_14_600">End Date</p>
                         <div>
                           <DateSelector
-                          value={currentEducation.endDate}
+                          value={currentEducation.toDate}
                           handleInputChange={handleEducationChange}
-                          name="endDate"
+                          name="toDate"
                           index={index}
                           />
                         </div>
                       </div>
 
+                    </div>
+
+                    <div className="mt-10">
+                      <p className="font_14_600">College Logo</p>
+
+                      <div className="mt-10">
+                        <TextInput
+                          value={currentEducation.universityLogo}
+                          handleInputChange={handleExperienceChange}
+                          name={"universityLogo"}
+                          index={index}
+                        />
+                      </div>
                     </div>
 
 

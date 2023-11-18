@@ -8,7 +8,13 @@ import dayjs from 'dayjs';
 
 function DateSelector(props) {
     const [value,setValue] =useState(dayjs(new Date()))
-
+    
+    useEffect(() => {
+      if (props.value) {
+        setValue(dayjs(new Date(props.value)))
+      }
+    }, [])
+    
   return (
     <div className="dateSelector-container">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
