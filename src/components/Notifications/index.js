@@ -11,12 +11,29 @@ function Notifications() {
     try {
       axios.get('http://localhost:8081/notification/user/203')
         .then(response => {
+          console.log(response.data)
           setNotifications(response.data)
         })
     } catch (error) {
       console.log(error)
     }
   }
+
+  const deleteUserNotification = async (id,index) => {
+    try {
+      
+      axios.delete(`http://localhost:8081/notification/delete/${id}`)
+        .then(response => {
+          console.log("this is delete response ",response)
+          let currentNotification = [...notifications]
+          currentNotification.splice(index,1)
+          setNotifications(currentNotification)
+        })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() =>{
     getUserNotification()
   },[])
@@ -38,7 +55,13 @@ function Notifications() {
                 <p className="font_16_600 ml-10">{currMsg.message}</p>
               </div>
 
+              <div 
+              onClick={() =>{
+                deleteUserNotification(currMsg.id,msgIndex)
+              }}
+              >
               <CloseIcon />
+              </div>
             </div>
           )
         })
