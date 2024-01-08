@@ -1,0 +1,40 @@
+.profileEdit-container{
+    height:auto;
+    width:80vw;
+}
+
+.profileEdit-left-inner-container{
+ width:30%;
+}
+.profileEdit-right-inner-container{
+    width:70%;
+}
+
+.profileEdit-question-section-container{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.profileEdit-textarea{
+    width: 90%;
+    background-color: transparent;
+    color:white;
+}
+
+@media (max-width: 600px) {
+    .profileEdit-container{
+        width: 100vw;       /* Make the div full width */
+  overflow-x: hidden;
+        }
+
+        .profileEdit-left-inner-container{
+            width:100%;
+           }
+           .profileEdit-right-inner-container{
+               width:100%;
+           }
+           .profileEdit-question-section-container{
+            flex-direction:column;
+            /* justify-content: space-between; */
+        }
+  }

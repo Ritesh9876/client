@@ -1,0 +1,9 @@
+.numberInput-container .MuiInputBase-input{
+    padding: 10px 8px !important;
+    color:white !important;
+
+}
+
+.numberInput-container .MuiOutlinedInput-notchedOutline{
+    border: 2px solid #dbdfea !important;
+}

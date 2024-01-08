@@ -1,0 +1,9 @@
+.selectInputType-container .MuiSelect-select{
+    padding: 10px 8px !important;
+    color:white !important;
+
+}
+
+.selectInputType-container .MuiOutlinedInput-notchedOutline{
+    border: 2px solid #dbdfea !important;
+}

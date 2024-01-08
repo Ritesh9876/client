@@ -1,0 +1,22 @@
+.notifications-container{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    height:calc(100vh - 100px);
+    width:80vw;
+    border-radius:10px;
+    margin-left:160px;
+    scrollbar-width: none;
+   
+} 
+
+.notifications-notification-container{
+    margin: auto;
+    background-color: #020617;
+    padding:10px;
+    width:40vw;
+    border-radius:10px;
+}

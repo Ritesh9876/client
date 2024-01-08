@@ -1,0 +1,5 @@
+install dep
+
+npm i jwt-decode
+npm i @react-oauth/google <--> if not work <--> add npm i @leecheuk/react-google-login
+

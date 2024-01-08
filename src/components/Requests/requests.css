@@ -1,0 +1,12 @@
+.requests-container{
+
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  width: 40vw;
+  height:calc(100vh - 100px); 
+}
+
