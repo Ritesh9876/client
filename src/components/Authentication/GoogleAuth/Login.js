@@ -6,6 +6,7 @@ import { useAuthentication } from "../../../context/AuthenticationContext";
 export default function Login() {
   const { authenticationState, authenticationDispatch } = useAuthentication();
   const onSuccess = (credentialResponse) => {
+    console.log()
     const token = credentialResponse.credential;
     const decoded = jwtDecode(token);
     authenticationDispatch({
